@@ -89,7 +89,7 @@ personal-library-lending-tracker/
 Clone the repository:
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone  https://github.com/Samarpan-Pandit/personal-library-lending-tracker.git
 ```
 
 Move into the project directory:
