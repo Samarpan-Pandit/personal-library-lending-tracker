@@ -1,54 +1,71 @@
 # Personal Library & Lending Tracker
 
-A backend-based library management system designed to manage books, borrowers, and lending activities. It provides REST APIs to add, update, search, and delete books, manage borrowers, track book loans, and view dashboard statistics.
+A full-stack library management system designed to manage books, borrowers, and lending activities. The application provides a user-friendly interface and REST APIs to add, update, search, and delete books, manage borrowers, track book loans, record returns, and view library statistics.
 
 ## Features
 
-### Book Management
+### 1. Dashboard
+- View total number of books.
+- View available and lent books.
+- View overdue books.
+- Display recently added books.
+- Display recent lending activities.
+- View live library statistics from the database.
+
+### 2. Book Management
 - Add new books.
-- View all books and check their availability.
+- View all books and their availability.
 - Search books by title, author, genre, or ISBN.
 - View book details.
 - Update book information.
 - Delete books when they have no lending history.
 - Prevent duplicate ISBN entries.
 
-### Borrower Management
+### 3. Borrower Management
 - Register new borrowers.
 - View all borrowers.
 - View individual borrower details.
+- Search borrowers by name or contact information.
 
-### Loan Management
-- Lend books to registered borrowers.
+### 4. Loan Management
+- Issue books to registered borrowers.
 - View all lending records.
 - View active loans.
 - View overdue loans.
 - Record book returns.
 - Prevent a book from being lent to multiple borrowers at the same time.
 
-### Dashboard
-- View total number of books.
-- View available and lent books.
-- View overdue books.
-- View total borrowers.
-- View returned loans.
+### 5. Responsive User Interface
+- Dashboard with summary cards.
+- Navigation sidebar.
+- Books, Borrowers, Loans, and Overdue pages.
+- Responsive layouts for desktop, tablet, and mobile devices.
+- Search, refresh, and interactive modal components.
 
-### Data Validation
+### 6. Data Validation and Security
 - Validate incoming API requests using Zod.
 - Handle invalid IDs and missing records.
 - Return appropriate HTTP status codes.
 - Use database constraints to maintain data integrity.
+- Protect database credentials using environment variables.
 
 ## Technologies Used
 
-- **Backend:** Node.js, Express.js
-- **Database:** PostgreSQL
-- **Database Library:** pg
-- **Validation:** Zod
-- **Environment Variables:** dotenv
-- **API Testing:** Postman
-- **Database Management:** pgAdmin 4
-- **Version Control:** Git and GitHub
+| Category | Technologies |
+|---|---|
+| Frontend | React.js, Vite |
+| Styling | CSS |
+| Backend | Node.js, Express.js |
+| Database | PostgreSQL |
+| Database Library | pg |
+| Validation | Zod |
+| HTTP Client | Axios |
+| Routing | React Router |
+| Icons | Lucide React |
+| Environment Variables | dotenv |
+| API Testing | Postman |
+| Database Management | pgAdmin 4 |
+| Version Control | Git and GitHub |
 
 ## Project Structure
 
@@ -68,8 +85,19 @@ personal-library-lending-tracker/
 │   ├── schema.sql
 │   └── seed.sql
 │
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   └── package.json
+│
 ├── API_DOCUMENTATION.md
-├── .env
 ├── .env.example
 ├── .gitignore
 ├── package.json
@@ -82,14 +110,14 @@ personal-library-lending-tracker/
 2. Create a database named `personal_library`.
 3. Open the PostgreSQL Query Tool.
 4. Execute the SQL statements from `database/schema.sql`.
-5. If sample data is required, execute `database/seed.sql`.
+5. Execute `database/seed.sql` if sample data is required.
 
-## Installation
+## Installation and Setup
 
-Clone the repository:
+### 1. Clone the Repository
 
 ```bash
-git clone  https://github.com/Samarpan-Pandit/personal-library-lending-tracker.git
+git clone https://github.com/Samarpan-Pandit/personal-library-lending-tracker.git
 ```
 
 Move into the project directory:
@@ -98,15 +126,15 @@ Move into the project directory:
 cd personal-library-lending-tracker
 ```
 
-Install dependencies:
+### 2. Install Backend Dependencies
 
 ```bash
 npm install
 ```
 
-## Environment Configuration
+### 3. Configure Environment Variables
 
-Create or update the `.env` file in the project root:
+Create a `.env` file in the project root using `.env.example` as a reference.
 
 ```env
 PORT=3000
@@ -119,29 +147,51 @@ DB_PASSWORD=your_postgresql_password
 
 Replace the username and password with your own PostgreSQL credentials.
 
-**Important:** Never upload your actual `.env` file or database password to GitHub. Use `.env.example` to share the required variable names.
+**Important:** Never upload your actual `.env` file or database password to GitHub.
 
-## Running the Backend
+### 4. Install Frontend Dependencies
 
-Start the backend server using:
+Open a new terminal and execute:
+
+```bash
+cd frontend
+npm install
+```
+
+## Running the Application
+
+Both the backend and frontend must be running.
+
+### Start the Backend
+
+From the project root:
 
 ```bash
 node backend/server.js
 ```
 
-The backend will run at:
+Backend URL:
 
-```text
-http://localhost:3000
+`http://localhost:3000`
+
+### Start the Frontend
+
+Open another terminal:
+
+```bash
+cd frontend
+npm run dev
 ```
+
+Frontend URL:
+
+`http://localhost:5173`
+
+Open the frontend URL in your browser to use the application.
 
 ## API Documentation
 
-Detailed API endpoints, request examples, validation rules, and response formats are available in:
-
-`API_DOCUMENTATION.md`
-
-Main API routes:
+Detailed API endpoints, request examples, validation rules, and response formats are available in `API_DOCUMENTATION.md`.
 
 | Module | Base Route |
 |---|---|
@@ -155,20 +205,30 @@ Main API routes:
 The backend APIs have been tested using Postman.
 
 Testing includes:
+
 - Creating, viewing, updating, deleting, and searching books.
 - Registering and viewing borrowers.
 - Creating and returning loans.
 - Checking active and overdue loans.
-- Testing duplicate ISBN and duplicate active lending restrictions.
+- Testing duplicate ISBN restrictions.
+- Testing duplicate active lending restrictions.
 - Testing invalid input, invalid IDs, and missing records.
 - Checking dashboard statistics.
+
+The frontend has also been tested for:
+
+- Navigation between all application pages.
+- Adding and managing books and borrowers.
+- Issuing and returning books.
+- Dashboard statistics and recent activities.
+- Mobile, tablet, and desktop responsiveness.
 
 ## Team Responsibilities
 
 The project is developed collaboratively, with responsibilities divided between team members.
 
-- **Member 1:** Backend development, PostgreSQL database design, REST API development, request validation, and API testing.
-- **Member 2:** Frontend development and assigned AI-related features.
+- **Member 1:** PostgreSQL database design, backend development, REST API development, request validation, and API testing.
+- **Member 2:** Frontend development, user interface design, and assigned AI-related features.
 
 ## Future Enhancements
 
@@ -179,5 +239,10 @@ The project is developed collaboratively, with responsibilities divided between 
 
 ---
 
-**Project:** Personal Library & Lending Tracker  
-**Status:** Backend API and database implementation completed and tested.
+**Project Name:** Personal Library & Lending Tracker
+
+**Project Type:** Full-Stack Web Application
+
+**Database:** PostgreSQL
+
+**Status:** Core backend, database, and frontend implementation completed and tested.
