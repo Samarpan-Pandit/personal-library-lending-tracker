@@ -170,6 +170,7 @@ router.get("/active", async (req, res, next) => {
         const result = await db.query(
             `SELECT
                 l.loan_id,
+                l.book_id,
                 b.title AS book_title,
                 br.name AS borrower_name,
                 l.loan_date,

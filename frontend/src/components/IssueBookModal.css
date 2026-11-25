@@ -1,0 +1,187 @@
+
+.issue-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.issue-modal {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+}
+
+.issue-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.issue-modal-header .eyebrow {
+  color: #6555ee;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin: 0 0 8px;
+}
+
+.issue-modal-header h2 {
+  color: #102b50;
+  font-size: 25px;
+  margin: 0 0 7px;
+}
+
+.issue-modal-header p:last-child {
+  color: #8492a6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.issue-close-button {
+  border: none;
+  background: #f3f5fa;
+  color: #64748b;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.issue-close-button:hover {
+  background: #e8ebf3;
+}
+
+.issue-form {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+
+.issue-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.issue-form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #263b59;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.issue-form-group label svg {
+  color: #6555ee;
+}
+
+.issue-form-group select,
+.issue-form-group input {
+  width: 100%;
+  min-height: 48px;
+  box-sizing: border-box;
+  border: 1px solid #dfe5ef;
+  border-radius: 9px;
+  padding: 0 13px;
+  background: #ffffff;
+  color: #34445e;
+  font-size: 14px;
+  outline: none;
+}
+
+.issue-form-group select:focus,
+.issue-form-group input:focus {
+  border-color: #6555ee;
+  box-shadow: 0 0 0 3px rgba(101, 85, 238, 0.1);
+}
+
+.issue-form-group small {
+  color: #dc5656;
+  font-size: 12px;
+}
+
+.issue-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.issue-cancel-button,
+.issue-submit-button {
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.issue-cancel-button {
+  border: 1px solid #dfe5ef;
+  background: #ffffff;
+  color: #52627a;
+}
+
+.issue-submit-button {
+  border: none;
+  background: #6555ee;
+  color: #ffffff;
+}
+
+.issue-submit-button:hover {
+  background: #5141d8;
+}
+
+.issue-submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.issue-loading {
+  padding: 35px 10px;
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+}
+
+.issue-error {
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: #fff0f0;
+  color: #c83d3d;
+  font-size: 13px;
+}
+
+@media (max-width: 550px) {
+  .issue-modal {
+    padding: 22px 18px;
+  }
+
+  .issue-modal-header h2 {
+    font-size: 22px;
+  }
+
+  .issue-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .issue-cancel-button,
+  .issue-submit-button {
+    width: 100%;
+  }
+}
